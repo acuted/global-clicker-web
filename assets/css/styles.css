@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #424242; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin: 0;
+}
+
+#game-container {
+  display: grid;
+  gap: 5em;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
+}
+
+#game {
+  text-align: left;
+  max-width: 1200px;
+}
+
+#click-button {
+  position: relative; /* Required for positioning wave */
+  overflow: hidden; /* Hide overflow from waves */
+  padding: 15px 30px; /* Padding for the #click-button */
+  font-size: 24px;
+  background-color: #ffff; /* Transparent background */
+  color: #333; /* Dark gray text color */
+  border: 2px solid #333; /* Dark gray border */
+  border-radius: 50px; /* Rounded #click-button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#click-button:hover {
+  background-color: rgb(76, 109, 83); /* White background on hover */
+  color: #ffffff; /* Keep text dark gray on hover */
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+
+.wave {
+  position: absolute;
+  border-radius: 50%; /* Circular wave */
+  background: rgba(89, 197, 89, 0.932); /* Green colour */
+  width: 150px; /* Adjusted size of wave */
+  height: 150px; /* Adjusted size of wave */
+  transform: scale(0); /* Initial scale */
+  animation: wave-animation 0.6s ease-out; /* Animation */
+  pointer-events: none; /* Ignore pointer events */
+}
+
+@keyframes wave-animation {
+  to {
+      transform: scale(2); /* Expand wave outward */
+      opacity: 0; /* Fade out */
+  }
+}
+
+#auto-count-container,
+#multiplier-container {
+  opacity: 0; /* Initial opacity for fade effect */
+  transition: opacity 0.5s ease; /* Smooth transition */
+  max-width: 260px;
+  margin: 20px 0; /* Spacing from the score */
+}
+
+.skill-box {
+  background-color: #f0f0f0; /* Light background */
+  border: 2px solid #518562; /* Border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px;
+  cursor: pointer; /* Pointer cursor for click */
+  text-align: center; /* Center text */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.skill-box.active {
+  background-color: #222222; /* Active status colour */
+  color: white; /* White text when active */
+  font-weight: bold;
+}
+
+.skill-box.active:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+
+#save-modal {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  border: 3px solid #518562;
+  border-radius: 25px;
+}
+
+#save-rank-button {
+  background-color: #f0f0f0; /* Light background */
+  border: 2px solid #518562; /* Border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px;
+  cursor: pointer; /* Pointer cursor for click */
+  text-align: center; /* Center text */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 5em 0;
+  font-weight: normal;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#save-rank-button:hover {
+  background-color: #222222; /* Active status colour */
+  color: white; /* White text when active */
+}
+
+input {
+  background-color: #2e2d2d;
+  display: block;
+  width: 95%;
+  padding: 6px;
+  border-radius: 8px;
+  border: 2px solid rgb(0, 0, 0);
+  outline: none;
+  color: #ffff;
+  margin-bottom: 10px;
+}
+
+#confirm-save, #cancel-save {
+  text-align: center;
+  position: relative; /* Required for positioning wave */
+  overflow: hidden; /* Hide overflow from waves */
+  padding: 10px 20px; /* Padding for the #click-button */
+  font-size: 20px;
+  background-color: #f0f0f0; /* Light background */
+  color: #333; /* Dark gray text color */
+  border: 2px solid #333; /* Dark gray border */
+  border-radius: 5px; /* Rounded #click-button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#confirm-save:hover, #cancel-save:hover {
+  background-color: rgb(76, 109, 83); /* White background on hover */
+  color: #ffffff; /* Keep text dark gray on hover */
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+}

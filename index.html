@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Clicker Web</title>
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+    integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <div id="game-container">
+    <div id="game">
+      <h1 style="color: #fff;text-shadow: 1px -2px 0px rgba(0, 0, 0, 1);font-size: 48px;">
+        Global Clicker Web
+        <small style="color: rgb(124, 216, 124);font-size: 14px;">by nix_acuted</small>
+      </h1>
+      <p style="color: #fff;text-shadow: 1px -2px 0px rgba(0, 0, 0, 1);">
+        Welcome stranger! The goal is simple: click to earn points and see how high you can score.
+        As you accumulate points, you'll unlock new skills to help you earn even more points effortlessly.
+
+        <b>
+          One exciting skill you can unlock is Automatic Counting,
+          which adds points to your score automatically every 0.4 seconds.
+          To activate this feature, you'll need to reach a total of 120 points.
+          The second skill available is the click multiplier, increased by 6 more points
+          with each click but with a limitation of 1 minute for activity and being available every 1500 points.
+        </b>
+      </p>
+      <button id="click-button" data-bind="click: incrementScore">
+        <span class="wave"></span> <!-- Wave effect -->
+        <span data-bind="text: score"></span>
+      </button>
+  
+      <div id="auto-count-container" style="display: none;">
+        <div id="skill-box" data-bind="click: toggleAutoCount" class="skill-box">
+          Automatic Clicking: <span data-bind="text: autoCountActive() ? 'Active' : 'Inactive'"></span>
+        </div>
+      </div>
+
+      <div id="multiplier-container" style="display: none;">
+        <div id="multiplier-box" data-bind="click: activateMultiplier" class="skill-box">
+          Multiplier Boost: <span data-bind="text: multiplierActive() ? 'Active' : 'Inactive'"></span>
+        </div>
+      </div>
+    </div>
+    
+    <div id="ranking" style="margin-top: 40px;">
+      <h2 style="color: #ffff;text-shadow: 1px -2px 0px rgba(0, 0, 0, 1);">Player Ranking</h2>
+      <div id="rankings-container" style="margin-top: 20px; box-shadow: rgba(230, 230, 230, 0.35) 0px 5px 15px;"></div>
+    </div>
+    
+    <footer>
+      <button id="save-rank-button" data-bind="click: openSaveModal">Save My Rank</button>
+      <div id="save-modal" style="display: none;">
+        <h3>By what name do you want to be identified?</h3>
+        <input type="text" id="username" />
+        <button id="confirm-save" data-bind="click: confirmSave">Confirm</button>
+        <button id="cancel-save" data-bind="click: closeSaveModal">Cancel</button>
+      </div>
+    </footer>
+  </div>
+  <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
